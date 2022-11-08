@@ -2,7 +2,7 @@
 
 # Created by: Joanne Santhosh
 # Created on: Nov 2022
-# This is the constants file 
+# This is the constants file
 
 # Pybadge screen size is 160x128 and sprites are 16x16
 SCREEN_X = 160
