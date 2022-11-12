@@ -15,7 +15,7 @@ FPS = 60
 SPRITE_MOVEMENT_SPEED = 1
 
  # Using for button state
- button_state = {
+button_state = {
     "button_up": "up",
     "button_just_pressed":"just_pressed",
     "button_still_pressed": "still pressed",
