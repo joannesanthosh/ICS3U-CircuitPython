@@ -39,7 +39,7 @@ def game_scene():
     )
 
     alien = stage.sprite(
-        image_bank_sprites, 
+        image_bank_sprites,
         9,
         int(constants.SCREEN_X / 2 - constants.SPRITE_SIZE / 2),
         16,
@@ -80,7 +80,7 @@ def game_scene():
                 ship.move((ship.x - constants.SPRITE_MOVEMENT_SPEED), ship.y)
             else:
                 ship.move(0, ship.y)
-        
+
         # update game logic
         # play sound if A was just button_just_pressed
         if a_button == constants.button_state["button_just_pressed"]:
@@ -88,7 +88,7 @@ def game_scene():
 
         # redraw sprite
         game.render_sprites([ship] + [alien])
-        game.tick() # wait until refresh rate finishes
+        game.tick()  # wait until refresh rate finishes
 
 
 if __name__ == "__main__":
