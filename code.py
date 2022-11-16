@@ -167,12 +167,18 @@ def game_scene():
         16,
     )
 
-    # create a stage for the backgrounf to show up on
+    # create list of lasers for when we shoot
+    lasers = []
+    for laser_number in range(constants.TOTAL_NUMBER_OF_LASERS):
+        a_single_laser = stage.Sprite(image_bank_sprites, 10, constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y)
+        lasers.append(a_single_laser)
+
+    # create a stage for the background to show up on
     # and set the frame rate 60fps
     game = stage.Stage(ugame.display, 60)
 
     # set layers of all sprites, items show up in  order
-    game.layers = [ship] + [alien] + [background]
+    game.layers = lasers + [ship] + [alien] + [background]
 
     # render all sprites
     # most likely you will only render the backgrounf once per gaem scene
@@ -210,7 +216,12 @@ def game_scene():
         # update game logic
         # play sound if A was just button_just_pressed
         if a_button == constants.button_state["button_just_pressed"]:
-            sound.play(pew_sound)
+            # fire a laser, if we have enough power (have not used up all lasers)
+            for laser_number in range(len(lasers)):
+                if lasers[laser_number].x < 0:
+                    lasers[laser_number].move(ship.x, ship.y)
+                    sound.play(pew_sound)
+                    break
 
         # redraw Sprite
         game.render_sprites([ship] + [alien])
