@@ -15,7 +15,7 @@ def splash_scene():
     # A function for the Splash Scene
 
     # Sound
-    coin_sound = open("coin.wav", 'rb')
+    coin_sound = open("coin.wav", "rb")
     sound = ugame.audio
     sound.stop()
     sound.mute(False)
@@ -25,7 +25,9 @@ def splash_scene():
     image_bank_mt_background = stage.Bank.from_bmp16("mt_game_studio.bmp")
 
     # Sprite Variables
-    background = stage.Grid(image_bank_mt_background, constants.SCREEN_GRID_X, constants.SCREEN_GRID_Y)
+    background = stage.Grid(
+        image_bank_mt_background, constants.SCREEN_GRID_X, constants.SCREEN_GRID_Y
+    )
 
     # used this program to split the image into tile: 
     # https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
@@ -66,6 +68,7 @@ def splash_scene():
         time.sleep(2.0)
         menu_scene()
 
+
 def menu_scene():
     # A function for the Menu Scene
 
@@ -74,12 +77,16 @@ def menu_scene():
 
     # Text Objects
     text = []
-    text1 = stage.Text(width=29, height=12, font=None, palette=constants.RED_PALETTE, buffer=None)
+    text1 = stage.Text(
+        width=29, height=12, font=None, palette=constants.RED_PALETTE, buffer=None
+    )
     text1.move(20, 10)
     text1.text("MT Game Studios")
     text.append(text1)
 
-    text2 = stage.Text(width=29, height=12, font=None, palette=constants.RED_PALETTE, buffer=None)
+    text2 = stage.Text(
+        width=29, height=12, font=None, palette=constants.RED_PALETTE, buffer=None
+    )
     text2.move(40, 110)
     text2.text("PRESS START")
     text.append(text2)
@@ -132,6 +139,7 @@ def menu_scene():
         # Redraw sprites
         game.tick()
 
+
 def game_scene():
     # This function is the main game game_scene
 
@@ -170,7 +178,9 @@ def game_scene():
     # create list of lasers for when we shoot
     lasers = []
     for laser_number in range(constants.TOTAL_NUMBER_OF_LASERS):
-        a_single_laser = stage.Sprite(image_bank_sprites, 10, constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y)
+        a_single_laser = stage.Sprite(
+            image_bank_sprites, 10, constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y
+        )
         lasers.append(a_single_laser)
 
     # create a stage for the background to show up on
