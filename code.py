@@ -4,11 +4,11 @@
 # Created on: Oct 2022
 # This program is the "Space Aliens" program  on the PyBadge
 
+import random
+import time
+import constants
 import stage
 import ugame
-import time
-import random
-import constants
 
 
 def splash_scene():
@@ -29,7 +29,7 @@ def splash_scene():
         image_bank_mt_background, constants.SCREEN_GRID_X, constants.SCREEN_GRID_Y
     )
 
-    # used this program to split the image into tile: 
+    # used this program to split the image into tile:
     # https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
     background.tile(2, 2, 0)  # blank white
     background.tile(3, 2, 1)
@@ -92,7 +92,9 @@ def menu_scene():
     text.append(text2)
 
     # Sprite Variables
-    background = stage.Grid(image_bank_mt_background, constants.SCREEN_GRID_X, constants.SCREEN_GRID_Y)
+    background = stage.Grid(
+        image_bank_mt_background, constants.SCREEN_GRID_X, constants.SCREEN_GRID_Y
+    )
 
     # used this program to split the image into tile: 
     # https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
@@ -233,10 +235,13 @@ def game_scene():
                     sound.play(pew_sound)
                     break
 
+
 # each frame move the lasers that have been fired up
 for laser_number in range(len(lasers)):
     if lasers[laser_number].x > 0:
-        lasers[laser_number].move(lasers[laser_number].x, lasers[laser_number].y - constants.LASER_SPEED)
+        lasers[laser_number].move(
+            lasers[laser_number].x, lasers[laser_number].y - constants.LASER_SPEED
+        )
         if lasers[laser_number].y < constants.OFF_TOP_SCREEN:
             lasers[laser_number].move(constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y)
 
