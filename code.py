@@ -1,4 +1,4 @@
- #!/usr/bin/env python3
+#!/usr/bin/env python3
 
 # Created by: Joanne Santhosh
 # Created on: Oct 2022
@@ -6,6 +6,7 @@
 
 import random
 import time
+
 import constants
 import stage
 import ugame
@@ -96,7 +97,7 @@ def menu_scene():
         image_bank_mt_background, constants.SCREEN_GRID_X, constants.SCREEN_GRID_Y
     )
 
-    # used this program to split the image into tile: 
+    # used this program to split the image into tile:
     # https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
     background.tile(2, 2, 0)  # blank white
     background.tile(3, 2, 1)
