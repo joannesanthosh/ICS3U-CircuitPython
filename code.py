@@ -267,7 +267,7 @@ def game_scene():
                         constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y
                     )
                     show_alien()
-        
+
         # each frame check if any of the lasers are touching any of the aliens
         for laser_number in range(len(lasers)):
             if lasers[laser_number].x > 0:
