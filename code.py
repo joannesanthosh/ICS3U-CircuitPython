@@ -22,6 +22,7 @@ def splash_scene():
     sound.stop()
     sound.mute(False)
     sound.play(coin_sound)
+    sound.play(boom_sound)
 
     # an image bank for CircuitPython
     image_bank_mt_background = stage.Bank.from_bmp16("mt_game_studio.bmp")
